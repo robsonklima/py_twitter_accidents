@@ -3,7 +3,7 @@ from django.db import models
 class AccidentManager(models.Manager):
     def search(self, query):
         return self.get_queryset().filter(
-            models.Q(latitude__icontains=query)
+            models.Q(text__icontains=query)
         )
 
 class Accident(models.Model):
@@ -13,13 +13,14 @@ class Accident(models.Model):
     longitude = models.CharField('Longitude', max_length=40)
     is_open_data = models.BooleanField('Is Open Data', default=False)
     is_twitter = models.BooleanField('Is Twitter', default=False)
+    text = models.TextField('Text', max_length=1000, null=True, blank=True)
 
     objects = AccidentManager()
 
     def __str__(self):
-        return self.occurred_at
+        return self.text
 
     class Meta:
         verbose_name = "Accident"
         verbose_name_plural = "Accidents"
-        ordering = ['occurred_at']
+        ordering = ['text']
