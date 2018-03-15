@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'py_twitter_accidents.core',
+    'py_twitter_accidents.accidents',
 ]
 
 MIDDLEWARE = [
