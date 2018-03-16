@@ -3,8 +3,8 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.urls import path
 
-from py_twitter_accidents.core import views
+from py_twitter_accidents.accidents import views
 
 urlpatterns = [
-    path('', views.home, name='home'),
+    path('', views.accidents, name='accidents'),
 ]
